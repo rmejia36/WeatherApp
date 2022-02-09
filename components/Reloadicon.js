@@ -15,7 +15,7 @@ export default function Reloadicon({load}) {
 const styles = StyleSheet.create({
     reloadIcon:{
         position: 'absolute',
-        top: 30,
-        right: 20,
+        top: 100,
+        right: 50,
     }
 })

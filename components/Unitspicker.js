@@ -4,7 +4,7 @@ import {Picker} from '@react-native-community/picker'
 
 export default function Unitspicker({unitsSystem, setUnitsSystem}) {
   return (
-    <View styles={styles.unitsSystem}>
+    <View style={styles.unitsSystem}>
       <Picker selectedValue={unitsSystem} onValueChange={(item)=>setUnitsSystem(item)} mode="dropdown" itemStyle={{fontSize: 12}}>
           <Picker.Item label="C°" value="metric" />
           <Picker.Item label="F°" value="imperial" />
@@ -17,15 +17,15 @@ const styles = StyleSheet.create({
     unitsSystem:{
         ...Platform.select({
             ios:{
-                top: -30,
+                top: 10,
             },
             android:{
-                top: 30,
+                top: 10,
             }
         }),
         position: 'absolute',
-        left: 20,
-        height: 50,
+        left: 50,
+        height: 100,
         width: 100,
     },
 })
