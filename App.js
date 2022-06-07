@@ -1,14 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
+  import { StatusBar } from 'expo-status-bar';
 import React, {useEffect, useState} from 'react';
 import { StyleSheet, Text, View, ActivityIndicator} from 'react-native';
 import * as Location from 'expo-location';
 import Weatherinfo from './components/Weatherinfo';
 import Unitspicker from './components/Unitspicker';
+import WeatherDetails from './components/WeatherDetails';
 import {colors} from './utils/index';
 import Reloadicon from './components/Reloadicon';
-
-const WEATHER_API_KEY = '8c3beaed48edf23be0b48e87b1d232c1';
-const BASE_WEATHER_URL = 'https://api.openweathermap.org/data/2.5/weather?'
+import { WEATHER_API_KEY } from '@env';
+const BASE_WEATHER_URL = 'https://api.openweathermap.org/data/2.5/weather?';
 
 export default function App() {
 
@@ -59,12 +59,14 @@ export default function App() {
         <Reloadicon load={load} />
         <Weatherinfo currentWeather={currentWeather}/>
       </View>
+      <WeatherDetails currentWeather={currentWeather}/>
     </View>
   )
   }else if(errorMessage){
     return(
       <View style={styles.container}>
-        <Text>{errorMessage}</Text>
+        <Reloadicon load={load} />
+        <Text style={{textAlign: 'center',}}>{errorMessage}</Text>
         <StatusBar style="auto" />
       </View>
     )
